@@ -62,7 +62,8 @@ import glob
 
 import pickle as pl
 
-import easygui_qt as easyqt
+from PyQt5.QtWidgets import QApplication, QFileDialog, QInputDialog
+
 import os
 import xraylib
 import dxchange
@@ -94,6 +95,52 @@ hc = constants.value('inverse meter-electron volt relationship')  # hc
 deg2rad = np.deg2rad(1)
 rad2deg = np.rad2deg(1)
 
+class easyqt:
+
+    @classmethod
+    def __get_app(cls):
+        return QApplication([])
+
+    @classmethod
+    def __quit_app(cls, qApp):
+        qApp.quit()
+
+    @classmethod
+    def get_file_names(cls, title):
+        qApp = cls.__get_app()
+        dialog = QFileDialog()
+        dialog.setFileMode(QFileDialog.ExistingFiles)
+        file_names = dialog.getOpenFileNames(None, title, os.curdir, filter="*.*")[0]
+        cls.__quit_app(qApp)
+
+        return file_names
+
+    @classmethod
+    def __send_input(cls, input, qApp):
+        item, ok = input
+        cls.__quit_app(qApp)
+
+        return item if ok and item else None
+
+    @classmethod
+    def get_choice(cls, message, title, choices=["Choice1", "Choice2"]):
+        qApp = cls.__get_app()
+        return cls.__send_input(QInputDialog.getItem(None, message, title, choices, 0, False), qApp)
+
+    @classmethod
+    def get_string(cls, message, title, default_response=""):
+        qApp = cls.__get_app()
+        return cls.__send_input(QInputDialog.getText(None, message, title, text=default_response), qApp)
+
+    @classmethod
+    def get_float(cls, message, title, default_value=0.0):
+        qApp = cls.__get_app()
+        return cls.__send_input(QInputDialog.getDouble(None, message, title, value=default_value), qApp)
+
+    @classmethod
+    def get_int(cls, message, title, default_value=""):
+        qApp = cls.__get_app()
+        return cls.__send_input(QInputDialog.getInt(None, message, title, value=default_value), qApp)
 
 def print_color(message, color='red',
                 highlights='on_white', attrs=''):
@@ -560,7 +607,6 @@ def _check_empty_fname(fname):
         return None
     else:
         return fname
-
 
 def gui_load_data_ref_dark_filenames(directory='',
                                      title="File name with Data"):
@@ -3759,3 +3805,25 @@ def load_csv_file(fname):
         headerlist.append(item)
 
     return data, headerlist, comments
+
+if __name__=="__main__":
+
+    qApp = QApplication([])
+
+    print(easyqt.get_float("AAAAA", "VVVVV", 10.2))
+
+    print(easyqt.get_string("AAAAA", "VVVVV", "ciccio"))
+
+    print(easyqt.get_file_names("Test"))
+
+    menu_choices = ["Item1", "Item2", "Item3"]  # Change order here!
+
+    choice = easyqt.get_choice(message='Select Sample Material',
+                               title='Title',
+                               choices=menu_choices)
+    if choice is None:
+        choice = menu_choices[0]
+
+    print (choice)
+
+    qApp.quit()

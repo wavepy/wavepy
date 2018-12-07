@@ -1,9 +1,10 @@
+
 ======
 wavePy
 ======
 
 
-`wavePy <https://github.com/wavepy/wavepy>`_ is Python library for data analyses of coherence and wavefront measurements at syncrotron beamlines. Currently it covers: single grating imaging, speckle tracking, scan of Talbot peaks for coherence.
+`wavePy <https://github.com/aps-xsd-opt-group/wavepy>`_ is Python library for data analyses of coherence and wavefront measurements at syncrotron beamlines. Currently it covers: single grating imaging, speckle tracking, scan of Talbot peaks for coherence.
 
 Documentation
 -------------
@@ -20,20 +21,31 @@ if you use wavePy.
 Contribute
 ----------
 
-* Documentation: https://github.com/wavepy/wavepy/tree/master/doc
-* Issue Tracker: https://github.com/wavepy/wavepy/issues
-* Source Code: https://github.com/wavepy/wavepy
+* Documentation: https://github.com/aps-xsd-opt-group/wavepy/tree/master/doc
+* Issue Tracker: https://github.com/aps-xsd-opt-group/wavepy/issues
+* Source Code: https://github.com/aps-xsd-opt-group/wavepy
 
+==========================
+Prerequisites
+==========================
 
+The following libraries should be installed in your system:
 
+- FFTW3, see: http://www.fftw.org/download.html
+- Xraylib, see: https://github.com/tschoonj/xraylib/wiki/Installation-instructions
+- DXchange, see: https://dxchange.readthedocs.io/en/latest/source/install.html
 
-
-
-
-
-============
+==========================
 Installation
-============
+==========================
+
+>>> python3 -m pip install wavepy
+
+
+
+==========================
+Installation as Developer
+==========================
 
 
 
@@ -46,7 +58,7 @@ Syncing with git
 Clone
 -----
 
->>> git clone https://github.com/wavepy/wavepy
+>>> git clone https://github.com/aps-xsd-opt-group/wavepy
 
 
 
