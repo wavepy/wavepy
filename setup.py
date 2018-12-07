@@ -11,7 +11,7 @@ except AttributeError:
 
 NAME = 'wavepy'
 
-VERSION = '1.0.0'
+VERSION = '1.0.1'
 ISRELEASED = True
 
 DESCRIPTION = 'Wavepy kernel library'
@@ -34,14 +34,13 @@ KEYWORDS = (
 
 CLASSIFIERS = (
     'Development Status :: 4 - Beta',
-    'License :: BSD-3',
+    'License :: OSI Approved :: BSD License',
     'Natural Language :: English',
     'Environment :: Console',
     'Environment :: Plugins',
     'Programming Language :: Python :: 3.6',
     'Topic :: Scientific/Engineering :: Visualization',
     'Intended Audience :: Science/Research',
-    'Platform: Any',
 )
 
 INSTALL_REQUIRES = (
