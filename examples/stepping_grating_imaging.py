@@ -58,7 +58,7 @@ import dxchange
 import wavepy.utils as wpu
 import wavepy.grating_interferometry as wgi
 
-import easygui_qt as easyqt
+from wavepy.utils import easyqt as easyqt
 
 from scipy.interpolate import splrep, splev, sproot
 from scipy import constants

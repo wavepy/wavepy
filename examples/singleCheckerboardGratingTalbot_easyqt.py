@@ -69,7 +69,8 @@ import dxchange
 import wavepy.utils as wpu
 import wavepy.grating_interferometry as wgi
 
-import easygui_qt as easyqt
+#import easygui_qt as easyqt
+from wavepy.utils import easyqt as easyqt
 # sys.path.append('/home/grizolli/workspace/pythonWorkspace/wgTools')
 
 rad2deg = np.rad2deg(1)
