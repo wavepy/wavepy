@@ -62,7 +62,7 @@ import glob
 
 import pickle as pl
 
-from PyQt5.QtWidgets import QApplication, QFileDialog, QInputDialog
+from PyQt5.QtWidgets import QApplication, QFileDialog, QInputDialog, QMessageBox
 
 import os
 import xraylib
@@ -125,22 +125,34 @@ class easyqt:
     @classmethod
     def get_choice(cls, message, title, choices=["Choice1", "Choice2"]):
         qApp = cls.__get_app()
-        return cls.__send_input(QInputDialog.getItem(None, message, title, choices, 0, False), qApp)
+        return cls.__send_input(QInputDialog.getItem(None, title, message, choices, 0, False), qApp)
+
+    @classmethod
+    def get_yes_or_no(cls, message, title=""):
+        qApp = cls.__get_app()
+
+        flags = QMessageBox.Yes | QMessageBox.No
+        flags |= QMessageBox.Cancel
+
+        reply = QMessageBox.question(None, title, message, buttons=flags) == QMessageBox.Yes
+        ok = reply != QMessageBox.Cancel
+
+        return cls.__send_input((reply, ok), qApp)
 
     @classmethod
     def get_string(cls, message, title, default_response=""):
         qApp = cls.__get_app()
-        return cls.__send_input(QInputDialog.getText(None, message, title, text=default_response), qApp)
+        return cls.__send_input(QInputDialog.getText(None, title, message, text=default_response), qApp)
 
     @classmethod
-    def get_float(cls, message, title, default_value=0.0):
+    def get_float(cls, message, title, default_value=0.0, decimals=2):
         qApp = cls.__get_app()
-        return cls.__send_input(QInputDialog.getDouble(None, message, title, value=default_value), qApp)
+        return cls.__send_input(QInputDialog.getDouble(None, title, message, value=default_value, decimals=decimals), qApp)
 
     @classmethod
     def get_int(cls, message, title, default_value=""):
         qApp = cls.__get_app()
-        return cls.__send_input(QInputDialog.getInt(None, message, title, value=default_value), qApp)
+        return cls.__send_input(QInputDialog.getInt(None, title, message, value=default_value), qApp)
 
 def print_color(message, color='red',
                 highlights='on_white', attrs=''):
@@ -2051,7 +2063,7 @@ def graphical_select_point_idx(zmatrix, verbose=False, kargs4graph={}):
                      figsize=(10, 8))
 
     surface = plt.imshow(zmatrix,  # origin='lower',
-                         cmap='spectral', **kargs4graph)
+                         cmap='Spectral', **kargs4graph)
     plt.autoscale(False)
 
     ax1, = plt.plot(zmatrix.shape[1]//2, zmatrix.shape[0]//2,
@@ -2374,7 +2386,7 @@ def rotate_img_graphical(array2D, order=1, mode='constant', verbose=False):
 
     >>> img = wpu.dummy_images('Shapes', noise=0)
     >>> img_rotated, angle = wpu.rotate_img_graphical(img)
-    >>> plt.imshow(img_rotated, cmap='spectral_r', vmin=-10)
+    >>> plt.imshow(img_rotated, cmap='Spectral_r', vmin=-10)
 
     See Also
     --------
