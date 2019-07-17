@@ -1,6 +1,6 @@
 #! /usr/bin/env python3
 
-import imp
+from importlib.machinery import SourceFileLoader
 import os
 import subprocess
 
@@ -11,7 +11,7 @@ except AttributeError:
 
 NAME = 'wavepy'
 
-VERSION = '1.0.3'
+VERSION = '1.0.4'
 ISRELEASED = True
 
 DESCRIPTION = 'Wavepy kernel library'
@@ -25,14 +25,13 @@ MAINTAINER = 'XSD-OPT Group @ APS-ANL'
 MAINTAINER_EMAIL = 'lrebuffi@anl.gov'
 LICENSE = 'BSD-3'
 
-KEYWORDS = (
-    'dictionary',
+KEYWORDS = ['dictionary',
     'glossary',
     'synchrotron'
     'simulation',
-)
+]
 
-CLASSIFIERS = (
+CLASSIFIERS = [
     'Development Status :: 4 - Beta',
     'License :: OSI Approved :: BSD License',
     'Natural Language :: English',
@@ -41,7 +40,7 @@ CLASSIFIERS = (
     'Programming Language :: Python :: 3.6',
     'Topic :: Scientific/Engineering :: Visualization',
     'Intended Audience :: Science/Research',
-)
+]
 
 INSTALL_REQUIRES = (
     'setuptools',
@@ -107,8 +106,7 @@ if not release:
     if os.path.exists('.git'):
         GIT_REVISION = git_version()
     elif os.path.exists('wavepy/version.py'):
-        # must be a source distribution, use existing version file
-        version = imp.load_source("wavepy.version", "wavepy/version.py")
+        version = SourceFileLoader("wavepy.version", "wavepy/version.py").load_module()
         GIT_REVISION = version.git_revision
     else:
         GIT_REVISION = "Unknown"

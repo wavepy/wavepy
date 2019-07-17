@@ -1,9 +1,9 @@
 
 # THIS FILE IS GENERATED FROM wavepy SETUP.PY
-short_version = '1.0.3'
-version = '1.0.3'
-full_version = '1.0.3'
-git_revision = '93aca353e9cac0459f3b0afed6b5bb706229d924'
+short_version = '1.0.4'
+version = '1.0.4'
+full_version = '1.0.4'
+git_revision = '46d7230298fdbfea053967f0a04d0b73eb6876ac'
 release = True
 
 if not release:
