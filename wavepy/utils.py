@@ -116,6 +116,14 @@ class easyqt:
         return file_names
 
     @classmethod
+    def get_directory_name(cls, title):
+        qApp = cls.__get_app()
+        dialog = QFileDialog()
+        directory_names = dialog.getExistingDirectory(None, title, os.getcwd())
+        cls.__quit_app(qApp)
+        return directory_names
+
+    @classmethod
     def __send_input(cls, input, qApp):
         item, ok = input
         cls.__quit_app(qApp)
