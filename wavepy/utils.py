@@ -492,7 +492,7 @@ def plot_profile(xmatrix, ymatrix, zmatrix,
                 _delta_y = abs(fwhm_side_x[0] - fwhm_side_x[1])
                 print('fwhm_y: %.4f\n' % _delta_y)
                 message = message + '\n'
-                message += r'$FWHM_y = {0:.4g} {1:s}'.format(_delta_y, xunit)
+                message += r'$FWHM_y = {0:.4g} {1:s}'.format(_delta_y, yunit)
                 message += '$'
 
                 side_subplot.plot(fwhm_side_y, fwhm_side_x, 'r--+',
