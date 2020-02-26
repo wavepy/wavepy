@@ -1,10 +1,10 @@
 
 ======
-wavePy
+wavepy
 ======
 
 
-`wavePy <https://github.com/aps-xsd-opt-group/wavepy>`_ is Python library for data analyses of coherence and wavefront measurements at syncrotron beamlines. Currently it covers: single grating imaging, speckle tracking, scan of Talbot peaks for coherence.
+`wavepy <https://github.com/aps-xsd-opt-group/wavepy>`_ is Python library for data analyses of coherence and wavefront measurements at synchrotron beamlines. Currently it covers: single-grating Talbot interferometry, speckle tracking, and scan of Talbot peaks for coherence analysis.
 
 Documentation
 -------------
@@ -14,7 +14,7 @@ Credits
 -------
 
 We kindly request that you cite the following `articles <https://wavepy.readthedocs.io/en/latest/source/credits.html#citations>`_ 
-if you use wavePy.
+if you use wavepy.
 
 * List here the features.
 

@@ -11,7 +11,7 @@ except AttributeError:
 
 NAME = 'wavepy'
 
-VERSION = '1.0.4'
+VERSION = '1.0.5'
 ISRELEASED = True
 
 DESCRIPTION = 'Wavepy kernel library'
