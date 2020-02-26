@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/wavepy.iml" filepath="$PROJECT_DIR$/.idea/wavepy.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../wavepytools/.idea/wavepytools.iml" filepath="$PROJECT_DIR$/../wavepytools/.idea/wavepytools.iml" />
     </modules>
   </component>
 </project>
