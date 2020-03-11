@@ -162,60 +162,7 @@ class easyqt:
         qApp = cls.__get_app()
         return cls.__send_input(QInputDialog.getInt(None, title, message, value=default_value), qApp)
 
-def print_color(message, color='red',
-                highlights='on_white', attrs=''):
-    """
-    Print with colored characters. It is only a alias for colored print using
-    the package :py:mod:`termcolor` and equals to::
 
-        print(termcolor.colored(message, color, highlights, attrs=attrs))
-
-
-    See options at https://pypi.python.org/pypi/termcolor
-
-    Parameters
-    ----------
-    message : str
-        Message to print.
-    color, highlights: str
-
-    attrs: list
-
-    """
-    import termcolor
-    print(termcolor.colored(message, color, highlights, attrs=attrs))
-
-
-def print_red(message):
-    """
-    Print with colored characters. It is only a alias for colored print using
-    the package :py:mod:`termcolor` and equals to::
-
-            print(termcolor.colored(message, color='red'))
-
-    Parameters
-    ----------
-    message : str
-        Message to print.
-    """
-    import termcolor
-    print(termcolor.colored(message, color='red'))
-
-
-def print_blue(message):
-    """
-    Print with colored characters. It is only a alias for colored print using
-    the package :py:mod:`termcolor` and equals to::
-
-            print(termcolor.colored(message, color='blue'))
-
-    Parameters
-    ----------
-    message : str
-        Message to print.
-    """
-    import termcolor
-    print(termcolor.colored(message, 'blue'))
 
 
 ############
