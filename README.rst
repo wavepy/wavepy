@@ -16,10 +16,8 @@ Documentation
 Credits
 -------
 
-We kindly request that you cite the following `articles <https://wavepy.readthedocs.io/en/latest/source/credits.html#citations>`_ 
+We kindly request that you cite the following `article <https://aip.scitation.org/doi/abs/10.1063/1.5084648>`_ 
 if you use wavepy.
-
-* List here the features.
 
 Contribute
 ----------
